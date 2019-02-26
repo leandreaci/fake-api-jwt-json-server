@@ -16,8 +16,8 @@ with the following data
 
 ```
 {
-  "email": "nilson@email.com",
-  "password":"nilson"
+  "email": "joedoe@email.com",
+  "password":"joedoe"
 }
 ```
 
