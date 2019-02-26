@@ -22,7 +22,7 @@ function createToken(payload){
 
 // Verify the token 
 function verifyToken(token){
-  return  jwt.verify(token, SECRET_KEY, (err, decode) => decode !== undefined ?  decode : err)
+  return  jwt.verify(token, SECRET_KEY, (err, decode) => decode !== undefined ?  decode : false)
 }
 
 // Check if the user exists in database
@@ -50,12 +50,12 @@ server.use(/^(?!\/auth).*$/,  (req, res, next) => {
     res.status(status).json({status, message})
     return
   }
-  try {
-     verifyToken(req.headers.authorization.split(' ')[1])
-     next()
-  } catch (err) {
+  if(verify)
+  {
+    next();
+  }else{
     const status = 401
-    const message = 'Error access_token is revoked'
+    const message = 'Error: access_token is not valid'
     res.status(status).json({status, message})
   }
 })
