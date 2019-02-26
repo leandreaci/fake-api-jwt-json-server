@@ -1,7 +1,3 @@
-# JSONServer + JWT Auth
-
-A Fake REST API using json-server with JWT authentication. You can find the [complete tutorial here](https://www.techiediaries.com/fake-api-jwt-json-server/)
-
 ## Install
 
 ```bash
